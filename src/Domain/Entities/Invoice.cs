@@ -1,3 +1,5 @@
+using Domain.Enums;
+
 namespace Domain.Entities;
 
 public class Invoice
@@ -6,7 +8,7 @@ public class Invoice
     public required string InvoiceNumber { get; set; }
     public Guid ClientId { get; set; }
     public required string OwnerId { get; set; }
-    public string Status { get; set; } = "Unpaid";
+    public InvoiceStatus Status { get; set; } = InvoiceStatus.UNPAID;
 
     public required DateTime IssueDate { get; set; }
     public required DateTime DueDate { get; set; }
