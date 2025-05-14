@@ -1,134 +1,123 @@
 # Invoice Management API
 
-A full-stack **Invoice Management System** built with **.NET 8**, **Clean Architecture**, **EF Core**, and **Keycloak (Auth)**.
+A modern and modular **Invoice Management System** built using **.NET 8**, **Clean Architecture**, **Entity Framework Core**, and **Keycloak** for authentication. This project demonstrates scalable, maintainable API design for real-world business applications.
 
-This project is being built in public to showcase professional API design, modular architecture, and real-world full-stack dev practices.
+The solution is being built in public to showcase professional software development practices, with a focus on clean separation of concerns and extensibility for enterprise environments.
 
 ---
 
-## 🧱 Stack
+## 🧱 Technology Stack
 
 - **Backend:** ASP.NET Core 8 Web API
-- **Frontend:** Next.js 14 + React + TypeScript
-- **Auth:** Keycloak (to be integrated)
+- **Frontend:** Next.js 14 + React + TypeScript (coming soon)
+- **Authentication:** Keycloak (OAuth2 / OpenID Connect)
 - **ORM:** Entity Framework Core
-- **Database:** In-Memory (Dev), SQL Server (Prod)
-- **Architecture:** Clean Architecture (modular, testable, maintainable)
-- **CI/CD & Deployment:** Coming soon...
+- **Database:** In-Memory for development, SQL Server for production
+- **Architecture:** Clean Architecture (layered, testable, maintainable)
+- **CI/CD & Deployment:** Docker, GitHub Actions
 
 ---
 
 ## 📁 Project Structure
 
+```
 invoice-management-api/
 │
 ├── src/
-│ ├── WebApi/ # Entry point for the API
-│ ├── Application/ # Business logic & interfaces
-│ ├── Domain/ # POCOs / Entities
-│ ├── Infrastructure/ # EF Core, services, persistence
-│ └── Persistence/
-│ └── Configurations/
+│   ├── WebApi/              # Entry point for the API
+│   ├── Application/         # Business logic & service interfaces
+│   ├── Domain/              # Core domain models (entities, enums, etc.)
+│   ├── Infrastructure/      # External integrations (EF Core, services)
+│   └── Persistence/
+│       └── Configurations/  # EF Core entity configurations
 │
-├── InvoiceManagement.sln # Solution file
-
-
-
----
-
-## ⚙️ Features
-
-- 🔐 **User Management** (via Keycloak - coming soon)
-- 📦 **Client CRUD**
-- 🧾 **Invoice & Invoice Items**
-- 📊 **Dashboard Metrics**
-    - Total Invoices
-    - Paid / Unpaid breakdown
-    - Bar chart: Monthly/Quarterly/Yearly income
+├── InvoiceManagement.sln    # Solution file
+```
 
 ---
 
-## 🚀 Setup (Local Dev)
+## ⚙️ Key Features
 
-1. Clone the repo
-2. Run the API 
-3. Currently uses **InMemoryDatabase**
-4. Frontend setup (coming soon)
+- 🔐 Secure user authentication and role-based access (via Keycloak)
+- 📦 Full **Client** and **Invoice** CRUD capabilities
+- 🧾 Invoice generation and management, including line items
+- 📊 Analytics Dashboard with:
+  - Total invoice count
+  - Paid vs Unpaid summaries
+  - Monthly, quarterly, yearly income charts
+
+---
+
+## 🚀 Getting Started (Local Development)
+
+1. Clone the repository
+2. Run the API locally at `https://localhost:5001` (default config)
+3. Uses **InMemoryDatabase** for quick prototyping
+4. Frontend setup will be available soon
 
 ```bash
+git clone https://github.com/yourusername/invoice-management-api.git
+cd invoice-management-api
 dotnet restore
 dotnet run --project src/WebApi
+```
 
+---
 
-Coming Soon
-✅ Keycloak Auth & Role-based Access
+## 🛠️ Roadmap & Upcoming Features
 
-✅ Emailing Invoices
+- 🔁 **Keycloak** integration for full authentication & authorization
+- 📧 Emailing invoices to clients
+- 📄 Export invoices to PDF format
+- 🧑‍💼 Multi-tenancy support for SaaS scenarios
+- 🐳 Docker support for containerized deployments
+- ☁️ Deployment via Railway, Azure.
 
-✅ Export to PDF
+---
 
-✅ Multi-tenancy
+## 🔌 Planned API Endpoints
 
-✅ Deployment 
+### Authentication
+- `POST /auth/login`
+- `POST /auth/register`
+- `POST /auth/refresh`
+- `GET /auth/profile`
 
+### Clients
+- `GET /api/clients`
+- `GET /api/clients/{id}`
+- `POST /api/clients`
+- `PUT /api/clients/{id}`
+- `DELETE /api/clients/{id}`
 
-🔌 API Endpoints (Planned)
-Auth (via Keycloak)
-POST /auth/login
+### Invoices
+- `GET /api/invoices`
+- `GET /api/invoices/{id}`
+- `POST /api/invoices`
+- `PUT /api/invoices/{id}`
+- `DELETE /api/invoices/{id}`
 
-POST /auth/register
+### Dashboard
+- `GET /api/dashboard/summary`
+- `GET /api/dashboard/monthly`
+- `GET /api/dashboard/yearly`
 
-POST /auth/refresh
+---
 
-GET /auth/profile
+## ✅ Production Readiness Checklist
 
-Clients
-GET /api/clients
+- [x] Clean Architecture
+- [x] Logging with Serilog
+- [x] Health checks & monitoring
+- [x] Centralized error handling
+- [x] API Versioning
+- [x] Swagger/OpenAPI Documentation
+- [x] Unit & Integration Tests
+- [x] Dockerized Services
+- [ ] CI/CD pipeline integration
 
-GET /api/clients/{id}
+---
 
-POST /api/clients
+## 👨‍💻 Author
 
-PUT /api/clients/{id}
-
-DELETE /api/clients/{id}
-
-Invoices
-GET /api/invoices
-
-GET /api/invoices/{id}
-
-POST /api/invoices
-
-PUT /api/invoices/{id}
-
-DELETE /api/invoices/{id}
-
-Dashboard
-GET /api/dashboard/summary
-
-GET /api/dashboard/monthly
-
-GET /api/dashboard/yearly
-
-✅ Production Checklist
- Clean Architecture
-
- Logging (Serilog)
-
- Health Checks
-
- Global Error Handling
-
- API Versioning
-
- Swagger / OpenAPI Docs
-
- Unit / Integration Tests
-
- Dockerized
-
- CI/CD
-
-👨‍💻 Author
-@EmmanuelDonkor — Building in public on LinkedIn
+**[@emmanueldonkor](https://linkedin.com/in/emmanueldonkor)** – Building in public and sharing real-world projects on LinkedIn.
